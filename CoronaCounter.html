@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="info"></div>
+
+    <script>
+      // Model
+
+      let antall = 0;
+      show();
+      let infoDiv = document.getElementById("info");
+      const btnFunc = document.getElementById("myBtn");
+      
+      
+      // View
+      show();
+      function show() {
+        document.getElementById("info").innerHTML = `
+
+        
+          <div class='allInfo'>
+            <h3 class='overskrift'> COVID-19 Counter </h3>
+            <br />
+            
+            <div class='display'>${antall}</div>
+            <div class='buttons1'>
+            <button onclick='plus2()'>++</button>
+            <button onclick='plus()'>+</button>
+            <button id='myBtn' onclick='minus()'>-</button>
+            <button onclick='minus2()'>--</button>
+            <br />
+                    </div>
+          </div>
+
+        
+
+
+
+        `;
+      }
+
+      //Controller
+
+      function plus2() {
+        show();
+        if (antall < 15) {
+          antall += 2;
+        }
+        if (antall == 16) antall = 15;
+        if (antall == 15)
+        setTimeout(() => { return alert('Arrangementet har nådd maks kapasitet.') },150 )
+        show();
+      }
+
+      function plus() {
+        if (antall < 15) {
+          antall++;
+          show();
+        }
+        if (antall == 15) setTimeout(() => { return alert('Arrangementet har nådd maks kapasitet.') },150 );
+      }
+            //Button test
+      /* function minus2(){
+          if (antall == 0){
+              btnFunc.disabled = true;
+          } else{
+              antall =-
+          }
+          show()
+      } */
+      {
+        function minus2() {
+          if (antall == 0 || antall == -1) {
+            btnFunc.disabled = true;
+          } else {
+            antall -= 2;
+          }
+          if (antall == -1){
+            antall = 0;
+          }
+
+          show();
+        }
+      }
+
+      function minus() {
+        if (antall == 0) {
+          btnFunc.disabled = true;
+        } else {
+          antall--;
+        }
+
+        show();
+      
+       }
+       // Eventuelt videreutvikle kode
+      //  if (antall == 0 || antall == 15) {
+      //  }
+    </script>
+  </body>
+</html>
