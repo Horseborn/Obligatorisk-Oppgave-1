@@ -1,4 +1,4 @@
-let antall = 0;
+
 
 
 
