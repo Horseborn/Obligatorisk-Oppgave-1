@@ -8,34 +8,38 @@
 
     <script>
       // Model
-
+      let max = "Bygget har nådd maks kapasitet!";
       let antall = 0;
+      //var lyd = new Audio('warning sound.ogg');
       show();
-      let infoDiv = document.getElementById("info");
-      const btnFunc = document.getElementById("myBtn");
-      
-      
+      // Prøvde på en alternativ måte å disable knappen på
+      // const btnFunc = document.getElementById("myBtn");
+
       // View
       show();
       function show() {
-        document.getElementById("info").innerHTML = `
+        info.innerHTML = `
 
-        
+
           <div class='allInfo'>
             <h3 class='overskrift'> COVID-19 Counter </h3>
             <br />
-            
+
             <div class='display'>${antall}</div>
             <div class='buttons1'>
             <button onclick='plus2()'>++</button>
-            <button onclick='plus()'>+</button>
+            <button onclick='plus(1)'>+</button>
             <button id='myBtn' onclick='minus()'>-</button>
             <button onclick='minus2()'>--</button>
+
+
             <br />
                     </div>
           </div>
+          <br />
 
-        
+
+
 
 
 
@@ -51,18 +55,42 @@
         }
         if (antall == 16) antall = 15;
         if (antall == 15)
-        setTimeout(() => { return alert('Arrangementet har nådd maks kapasitet.') },150 )
+          setTimeout(() => {
+            return alert("Arrangementet har nådd maks kapasitet.");
+          }, 150);
+
         show();
       }
 
-      function plus() {
+      // function plus() {
+      //   if (antall < 15) {
+      //     antall++;
+      //     show();
+      //   }
+      function plus(enplus) {
         if (antall < 15) {
-          antall++;
+          antall += enplus;
+        }
+
+        show();
+        if (antall == 15) {
+          setTimeout(() => 1500);
+          return alert(max);
           show();
         }
-        if (antall == 15) setTimeout(() => { return alert('Arrangementet har nådd maks kapasitet.') },150 );
       }
-            //Button test
+
+      //Return forsøk
+      // if (antall == 0 || antall == 15) {
+      //    show()
+      //    return maks = 'Arrangementet har nådd maks kapasitet!'
+      //  }
+      if (antall == 15)
+        setTimeout(() => {
+          return alert("Arrangementet har nådd maks kapasitet.");
+        }, 150);
+
+      //Button test
       /* function minus2(){
           if (antall == 0){
               btnFunc.disabled = true;
@@ -74,11 +102,11 @@
       {
         function minus2() {
           if (antall == 0 || antall == -1) {
-            btnFunc.disabled = true;
+            // btnFunc.disabled = true;
           } else {
             antall -= 2;
           }
-          if (antall == -1){
+          if (antall == -1) {
             antall = 0;
           }
 
@@ -88,17 +116,54 @@
 
       function minus() {
         if (antall == 0) {
-          btnFunc.disabled = true;
+          // btnFunc.disabled = true;
         } else {
           antall--;
         }
 
         show();
+      }
+
+      var audio = new Audio("warning sound.ogg");
+
+      function play() {
+        if (antall == 15) {
+          audio.play();
+        }
+      }
+      // var sound1 = new Audio('warning sound.ogg');
+      // var playSound = function(){
+      //   if(antall == 15){
+      //     sound1.play();
+      //     console.log('hei')
+      //   }
+      //   else {
+      //     sound1.play();
+      //     console.log('hei')
+      //   }
+      // }
+
+      // let audio = new Audio('warning sound.ogg');
+      // function play() {
+      //   if(antall == 15){
+      //     return (play())
+      //     show()
+      //   }
+      // }
+    //     function play() {
+    //   let playPromise = new Audio("warning sound.ogg");
+    //   if(antall == 14){
+    //   playPromise.play().then(() => {
+    //       console.log("Playing");
+    //     })
+    //   }
+    // }
+    // show();
+
+    // play();
+        
+
       
-       }
-       // Eventuelt videreutvikle kode
-      //  if (antall == 0 || antall == 15) {
-      //  }
     </script>
   </body>
 </html>
