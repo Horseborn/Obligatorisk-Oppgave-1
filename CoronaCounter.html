@@ -54,29 +54,22 @@
           antall += 2;
         }
         if (antall == 16) antall = 15;
+
         if (antall == 15)
           setTimeout(() => {
             return alert("Arrangementet har nådd maks kapasitet.");
           }, 150);
-
         show();
       }
-
-      // function plus() {
-      //   if (antall < 15) {
-      //     antall++;
-      //     show();
-      //   }
       function plus(enplus) {
         if (antall < 15) {
           antall += enplus;
+          show();
         }
 
-        show();
         if (antall == 15) {
-          setTimeout(() => 1500);
+          setTimeout(() => 150);
           return alert(max);
-          show();
         }
       }
 
@@ -85,10 +78,6 @@
       //    show()
       //    return maks = 'Arrangementet har nådd maks kapasitet!'
       //  }
-      if (antall == 15)
-        setTimeout(() => {
-          return alert("Arrangementet har nådd maks kapasitet.");
-        }, 150);
 
       //Button test
       /* function minus2(){
@@ -123,47 +112,18 @@
 
         show();
       }
-
-      var audio = new Audio("warning sound.ogg");
-
-      function play() {
-        if (antall == 15) {
-          audio.play();
-        }
-      }
-      // var sound1 = new Audio('warning sound.ogg');
-      // var playSound = function(){
+      // Prøvde meg på en sound effect når antall traff 15
+      //     function play() {
+      //   let playPromise = new Audio("warning sound.ogg");
       //   if(antall == 15){
-      //     sound1.play();
-      //     console.log('hei')
-      //   }
-      //   else {
-      //     sound1.play();
-      //     console.log('hei')
+      //   playPromise.play().then(() => {
+      //       console.log("Playing");
+      //     })
       //   }
       // }
+      // show();
 
-      // let audio = new Audio('warning sound.ogg');
-      // function play() {
-      //   if(antall == 15){
-      //     return (play())
-      //     show()
-      //   }
-      // }
-    //     function play() {
-    //   let playPromise = new Audio("warning sound.ogg");
-    //   if(antall == 14){
-    //   playPromise.play().then(() => {
-    //       console.log("Playing");
-    //     })
-    //   }
-    // }
-    // show();
-
-    // play();
-        
-
-      
+      // play();
     </script>
   </body>
 </html>
